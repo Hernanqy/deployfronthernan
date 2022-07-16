@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const getPostsRequest = async () => {
   try {
-    const res = await axios.get("https://deploy-hernanquiroga.herokuapp.com/posts");
+    const res = await axios.get("https://deploydelback.herokuapp.com/");
     return res.data;
   } catch (error) {
     console.log(error);
@@ -11,7 +11,7 @@ export const getPostsRequest = async () => {
 
 export const deletePostRequest = async (id) => {
   try {
-    const res = await axios.delete("https://deploy-hernanquiroga.herokuapp.com/posts/" + id);
+    const res = await axios.delete("https://deploydelback.herokuapp.com//" + id);
     console.log(res.status);
     return res.status;
   } catch (error) {
@@ -26,7 +26,7 @@ export const createPostRequest = async (post) => {
       form.append(key, post[key]);
     }
     console.log("aca en el create", form);
-    const res = await axios.post("https://deploy-hernanquiroga.herokuapp.com/posts", form, {
+    const res = await axios.post("https://deploydelback.herokuapp.com/", form, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     return res.status;
@@ -38,7 +38,7 @@ export const createPostRequest = async (post) => {
 
 export const getPostRequest = async (id) => {
   try {
-    const res = await axios.get("https://deploy-hernanquiroga.herokuapp.com/posts/" + id);
+    const res = await axios.get("https://deploydelback.herokuapp.com//" + id);
     
     return res;
   } catch (error) {
@@ -54,7 +54,7 @@ export const updatePostRequest = async (id, newPostFields) => {
       form.append(key, newPostFields[key]);
     }
     console.log("antes de que se caiga ", form);
-    const res = await axios.patch("https://deploy-hernanquiroga.herokuapp.com/posts/" + id, newPostFields, {
+    const res = await axios.patch("https://deploydelback.herokuapp.com//" + id, newPostFields, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     console.log("respuesta de axios patch", res);
